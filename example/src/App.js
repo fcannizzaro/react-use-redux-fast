@@ -1,12 +1,18 @@
-import {FastReduxProvider, useActions, useStates} from '@fcannizzaro/react-use-redux-fast'
+import {FastReduxProvider, useActions, useStates, useState} from '@fcannizzaro/react-use-redux-fast'
 import React from 'react'
 
 const id = () => Math.round(Math.random() * 100)
 
 const InternalComponent = () => {
 
+  // ready to use as dispatched actions
   const {setupProfile, setupValue} = useActions()
+
+  // store values
   const {profile, value} = useStates('profile', 'value')
+
+  // apply a transform
+  const other = useState('value', 0, it => it * 3)
 
   return <div>
 
@@ -17,13 +23,16 @@ const InternalComponent = () => {
 
     <div className='table'>
       <button onClick={() => setupValue(id())}> SET A NEW VALUE</button>
-      <div><b>{String(value)}</b></div>
+      <div><b>{String(value)}</b> vs {String(other)}</div>
     </div>
 
   </div>
 
 }
 
-export default () => <FastReduxProvider bundle={require('./redux')}>
-  <InternalComponent />
-</FastReduxProvider>
+export default () => {
+  // require or import actions directory (module like)
+  return <FastReduxProvider bundle={require('./actions')}>
+    <InternalComponent />
+  </FastReduxProvider>
+}

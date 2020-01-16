@@ -97,6 +97,20 @@ export default () => {
 }
 ```
 
+## Hooks
+
+### useActions()
+
+return an object with dispatchable actions.
+
+### useStates`(...keys)`
+
+return store's values of required keys.
+
+### useState`(key [, defaultValue, transform: function])`
+
+obtain a single store value, with default value and/or applying a transform function `(value) => transform(value)`.
+
 ## License
 
 MIT © [fcannizzaro](https://github.com/fcannizzaro)
