@@ -63,7 +63,7 @@ const id = () => Math.round(Math.random() * 100)
 
 const InternalComponent = () => {
 
-  // ready to use dispatch actions
+  // ready to use as dispatched actions
   const {setupProfile, setupValue} = useActions()
 
   // store values
