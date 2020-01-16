@@ -89,8 +89,8 @@ const InternalComponent = () => {
 
 }
 
-// require or import actions directory (module like)
 export default () => {
+    // require or import actions directory (module like)
     return <FastReduxProvider bundle={require('./actions')}>
         <InternalComponent />
     </FastReduxProvider>
