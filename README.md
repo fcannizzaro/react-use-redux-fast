@@ -90,9 +90,11 @@ const InternalComponent = () => {
 }
 
 // require or import actions directory (module like)
-export default () => <FastReduxProvider bundle={require('./actions')}>
-  <InternalComponent />
-</FastReduxProvider>
+export default () => {
+    return <FastReduxProvider bundle={require('./actions')}>
+        <InternalComponent />
+    </FastReduxProvider>
+}
 ```
 
 ## License
